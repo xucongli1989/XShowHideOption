@@ -22,7 +22,7 @@
      * 是否为ie浏览器
      */
     var isIE = (function () {
-        return true;//(!-[1, ]) || /msie/i.test(ua);
+        return (!-[1, ]) || /msie/i.test(ua);
     })();
 
     /**
