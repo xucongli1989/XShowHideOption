@@ -5,32 +5,112 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="XShowHideOption.js" type="text/javascript"></script>
+    <style type="text/css">
+        fieldset {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
+    <fieldset>
+        <legend style="color:#f00;">场景一：普通情况（基本）</legend>
+        <div>
 
-    <select id="sel">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" XShowHideOption-isShow="false">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
+            下拉框：
 
-    <hr/>
+            <select id="sel1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" data-v="xxxx">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-    <input type="text" id="txtVal" />
+            <hr/> 请输入要显示或隐藏的option的value值（多个以英文逗号隔开）：
 
-    <input type="button" value="显示" onclick="showOrHiddenOps(true);return false;" />
-    <input type="button" value="隐藏" onclick="showOrHiddenOps(false);return false;" />
-
+            <input type="text" id="txtVal1" />
 
 
-    <script type="text/javascript">
-        var sel=new XShowHideOption("sel");
-        sel.init();
-    </script>
+            <input type="button" value="显示" onclick="showHide1(true);return false;" />
+            <input type="button" value="隐藏" onclick="showHide1(false);return false;" />
+            <input type="button" value="显示所有" onclick="showHideAll1(true);return false;" />
+            <input type="button" value="隐藏所有" onclick="showHideAll1(false);return false;" />
+
+
+            <script type="text/javascript">
+                var sel1=new XShowHideOption("sel1");
+                
+                sel1.beforeSetOption=function(){
+                    alert("准备设置option！");
+                };
+                sel1.afterSetOption=function(){
+                    alert("option已设置完毕！");
+                };
+                
+                function showHide1(isShow){
+                    sel1.setOption(document.getElementById("txtVal1").value||"",isShow);
+                }
+                function showHideAll1(isShow){
+                    sel1.setOption(null,isShow);
+                }
+            </script>
+
+        </div>
+    </fieldset>
+
+
+
+
+    <fieldset>
+        <legend style="color:#f00;">场景二：页面加载时，初始化隐藏部分option</legend>
+        <div>
+
+            下拉框：
+
+            <select id="sel2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" XShowHideOption-isShow="false">3</option>
+                <option value="4" XShowHideOption-isShow="false">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <script type="text/javascript">
+                var sel2=new XShowHideOption("sel2");
+                sel2.init();
+            </script>
+
+        </div>
+    </fieldset>
+
+
+
+
+    <fieldset>
+        <legend style="color:#f00;">场景三：multiple select</legend>
+        <div>
+
+            下拉框：
+            <br/>
+
+            <select id="sel3" multiple style="width:200px;height:200px;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" XShowHideOption-isShow="false">3</option>
+                <option value="4" XShowHideOption-isShow="false">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <script type="text/javascript">
+                var sel3=new XShowHideOption("sel3");
+                sel3.init();
+            </script>
+
+        </div>
+    </fieldset>
+
 
 </body>
 
