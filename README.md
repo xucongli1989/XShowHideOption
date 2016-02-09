@@ -70,28 +70,22 @@ isShow:是否显示
 
 # 使用（具体请参见demo.html）
 
-                <script type="text/javascript">
+            <script type="text/javascript">
                 var sel1=new XShowHideOption("sel1");
-                
                 sel1.beforeSetOption=function(){
                     alert("准备设置option！");
                 };
                 sel1.afterSetOption=function(){
                     alert("option已设置完毕！");
                 };
-                
-                function showHide1(isShow){
-                    sel1.setOption(document.getElementById("txtVal1").value||"",isShow);
-                }
-                function showHideAll1(isShow){
-                    sel1.setOption(null,isShow);
-                }
             </script>
 
 
 
 # 在线预览
 
-
+[http://htmlpreview.github.io/?https://raw.githubusercontent.com/xucongli1989/XShowHideOption/master/XShowHideOption/demo.html](http://htmlpreview.github.io/?https://raw.githubusercontent.com/xucongli1989/XShowHideOption/master/XShowHideOption/demo.html)
 
 注：在线预览可能不准确，请参见demo.html
+
+![](https://raw.githubusercontent.com/xucongli1989/XShowHideOption/master/XShowHideOption/Imgs/1.jpg)
